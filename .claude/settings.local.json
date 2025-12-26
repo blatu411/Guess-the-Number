@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "mcp__promptx__action",
-      "Bash(dir /s)"
+      "Bash(dir /s)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: 完成猜数字小程序项目\n\n- 实现完整的游戏逻辑（1-100随机数、大小对比、计数统计）\n- 设计现代化UI（紫色渐变背景、毛玻璃效果、流畅动画）\n- 包含输入验证、历史记录、重新开始等功能\n- 编写专业的README文档（项目介绍、功能特性、使用指南）\n\n🎮 Generated with Claude Code\n\nCo-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)"
     ]
   }
 }
