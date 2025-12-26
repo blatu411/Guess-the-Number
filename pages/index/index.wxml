@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 标题 -->
+  <view class="title">
+    <text>🎮 猜数字游戏</text>
+  </view>
+
+  <!-- 游戏状态信息 -->
+  <view class="stats">
+    <view class="stat-item">
+      <text class="stat-label">已猜测:</text>
+      <text class="stat-value">{{count}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">范围:</text>
+      <text class="stat-value">1-100</text>
+    </view>
+  </view>
+
+  <!-- 消息提示 -->
+  <view wx:if="{{message}}" class="message message-{{messageType}}">
+    <text>{{message}}</text>
+  </view>
+
+  <!-- 游戏未结束时显示输入框 -->
+  <view wx:if="{{!isWin}}" class="input-group">
+    <input
+      class="input-field"
+      type="number"
+      placeholder="输入数字"
+      value="{{guess}}"
+      bindinput="onInputChange"
+      bindconfirm="onGuessClick"
+      disabled="{{isWin}}"
+      placeholder-style="color: #999;"
+    />
+    <button
+      class="guess-btn"
+      bindtap="onGuessClick"
+      disabled="{{isWin}}"
+    >
+      猜一猜
+    </button>
+  </view>
+
+  <!-- 游戏赢了显示重新开始按钮 -->
+  <view wx:if="{{isWin}}" class="win-group">
+    <view class="celebration">
+      <text>🎉🎉🎉</text>
+    </view>
+    <button
+      class="restart-btn"
+      type="primary"
+      bindtap="onRestartClick"
+    >
+      重新开始
+    </button>
+  </view>
+
+  <!-- 历史记录 -->
+  <view wx:if="{{history.length > 0}}" class="history">
+    <view class="history-title">
+      <text>猜测历史</text>
+    </view>
+    <view class="history-list">
+      <text
+        wx:for="{{history}}"
+        wx:key="index"
+        class="history-item"
+      >
+        {{item}}
+      </text>
+    </view>
+  </view>
+</view>
